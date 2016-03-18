@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomepageController@show');
+Route::get('/profile', 'ProfilepageController@show');
+Route::post('/profile/update', 'ProfilepageController@update')->name('update');
+Route::post('/profile/new', 'ProfilepageController@create');
+
+
 
 /*
 |--------------------------------------------------------------------------
