@@ -18,25 +18,8 @@ class HomepageController extends Controller
 		$users = User::where('id','!=',$id)->get();
 		
 		$client = new Client('4sfm2rjss47y', 'ymccmrjqrckmq867p2d6xwrgshrdujp4d23n9n7tchcyb8qk92k5pzbvpfs9c7zq');	
-		$myFeed = $client->feed('user', $id);
-		$follows = Follow::getById($id);
+		$myFeed = $client->feed('flat', $id);
 		
-		foreach ($follows as $follow){
-
-			$user = User::getById($follow->getFollowsId());
-		
-			foreach ($user->getPost() as $post){
-				$data = array(
-  			  	"actor"=>$follow->getFollowsId(),
-			    "verb"=>"like",
-    			"object"=>$post->getId(),
-    		  	"post"=>$post->getArticle()
-				);
-				$myFeed->addActivity($data);
-			}
-		}
-		
-		//dd($myFeed->getActivities()['results']);
 		$users = User::where('id','!=',$id)->get();
 		
 		return view('home',compact('users','id','myFeed'));
@@ -48,6 +31,10 @@ class HomepageController extends Controller
 		$follow->setMyId($myid);
 		$follow->setFollowId($request->input('followid'));
 		$follow->save();
+		
+		$client = new Client('4sfm2rjss47y', 'ymccmrjqrckmq867p2d6xwrgshrdujp4d23n9n7tchcyb8qk92k5pzbvpfs9c7zq');	
+		$FollowFeed = $client->feed('flat', $myid);
+$FollowFeed->followFeed('user', $request->input('followid'));
 		
 		return $this->show($myid);
 	}

@@ -7,6 +7,7 @@ use Auth;
 use Blog\Http\Requests;
 use Blog\Models\User;
 use Blog\Models\Post;
+use GetStream\Stream\Client;
 
 class ProfilepageController extends Controller
 {
@@ -17,6 +18,17 @@ class ProfilepageController extends Controller
 		$post->setArticle($request->input('post'));
 		$post->setUser($id);
  		$post->save();
+		
+		$client = new Client('4sfm2rjss47y', 'ymccmrjqrckmq867p2d6xwrgshrdujp4d23n9n7tchcyb8qk92k5pzbvpfs9c7zq');	
+		$myFeed = $client->feed('user', $id);
+		
+		$data = array(
+  			  	"actor"=>$id,
+			    "verb"=>"own",
+    			"object"=>$post->getId(),
+    		  	"post"=>$post->getArticle()
+				);
+		$myFeed->addActivity($data);
 		
 		return view('profile',compact('user'));
  	} 
