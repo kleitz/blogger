@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/blogger":{"type":null,"mount_options":[],"guestpath":"/home/vagrant/blogger","hostpath":"/Users/campusdiaries/mohinee/blogger","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/campusdiaries/mohinee/blogger","disabled":false,"__vagrantfile":true}}}

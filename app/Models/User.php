@@ -7,11 +7,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
 
-    protected $fillable = [
-        'name', 'email'
-    ];
+    protected $fillable = array('name', 'email');
 
-
+	public function post()
+    {
+        return $this->hasMany('Blog\Models\Post');
+    }
+	
     public function getId(){
         return $this->id;
     }
@@ -27,5 +29,22 @@ class User extends Authenticatable
     public function getName(){
         return $this->name;
     }
+	
+	 public function getEmail(){
+        return $this->email;
+    }
+	
+	public static function getByEmail($email){
+		return Self::where('email',$email)->firstOrFail();	
+	}
+	
+	public static function getById($id){
+		return Self::where('id',$id)->firstOrFail();	
+	}
+	
+	 public function getPost(){
+        return $this->post;
+    }
+	
 
 }

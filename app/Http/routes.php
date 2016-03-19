@@ -12,17 +12,13 @@
 */
 Route::get('/', 'ProfilepageController@login')->name('login');
 Route::post('/create', 'ProfilepageController@create')->name('create');
-
-Route::group(['middleware' => 'auth'], function () {
-    
-	Route::get('/home', 'HomepageController@show')->name('home');
-	Route::get('/profile', 'ProfilepageController@show')->name('profile');
-	Route::post('/profile/update', 'ProfilepageController@update')->name('update');
-});
-
-
-
-
+	
+Route::get('/home/{id}', 'HomepageController@show')->name('home');
+	Route::post('/follow/{myid}', 'HomepageController@follow')->name('follow');
+	
+	
+	Route::post('/update/{id}', 'ProfilepageController@update')->name('update');
+	
 
 
 /*
