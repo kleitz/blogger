@@ -10,11 +10,18 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/', 'ProfilepageController@login')->name('login');
+Route::post('/create', 'ProfilepageController@create')->name('create');
 
-Route::get('/', 'HomepageController@show');
-Route::get('/profile', 'ProfilepageController@show');
-Route::post('/profile/update', 'ProfilepageController@update')->name('update');
-Route::post('/profile/new', 'ProfilepageController@create');
+Route::group(['middleware' => 'auth'], function () {
+    
+	Route::get('/home', 'HomepageController@show')->name('home');
+	Route::get('/profile', 'ProfilepageController@show')->name('profile');
+	Route::post('/profile/update', 'ProfilepageController@update')->name('update');
+});
+
+
+
 
 
 
@@ -29,6 +36,4 @@ Route::post('/profile/new', 'ProfilepageController@create');
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
-});
+

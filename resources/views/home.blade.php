@@ -1,5 +1,5 @@
 
-@extends('app')
+@extends('header')
 @section('header')
 
 <title>Bolgger</title>
@@ -13,7 +13,7 @@
 		 
 
 
-<a class="btn btn-default" href="/newuser">New User</a>
+<a class="btn btn-default" href="/">New User</a>
 
 @stop
 

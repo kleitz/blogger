@@ -9,6 +9,7 @@ use Blog\Http\Requests;
 class HomepageController extends Controller
 {
  	public function show(){
- 		dd('home page show');
+ 		$user = Auth::user();
+ 		return view('home',compact('user'));
  	}
 }

@@ -156,6 +156,7 @@ return [
         Blog\Providers\EventServiceProvider::class,
         Blog\Providers\RouteServiceProvider::class,
         GetStream\StreamLaravel\StreamLaravelServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -203,6 +204,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'FeedManager' => GetStream\StreamLaravel\Facades\FeedManager::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

@@ -1,10 +1,9 @@
-
-@extends('app')
+@extends('header')
 @section('header')
 
 <title>Bolgger</title>
 <center><h1>Profile</h1>   
-<a class="btn btn-default" href="/">Home</a>       
+<a class="btn btn-default" href="/home">Home</a>       
 </center>
     
 @stop
@@ -17,15 +16,7 @@
 
 		  {{ Form::text('post') }}
 		  
-		  {{ Form::close() }}
-
-		  @foreach($user->post as $post)
-				
-		<div>	<p>	 {{ $post->getArticle()) }}	  </p></div><br><br>
-			@endforeach
-
-
-<a class="btn btn-default" href="/newuser">New User</a>       
+		  {{ Form::close() }}      
 
 @stop
 
