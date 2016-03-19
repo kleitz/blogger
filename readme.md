@@ -25,3 +25,16 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+
+
+
+to deploy this app:
+
+
+1 use a ubuntu server
+2 clone the code base to server
+3 install composer
+4 cd into the folder and do composer install
+5 run command “php artisan migrate” to migrate the entire database
+6 finally run php artisan serve to make the app go live
