@@ -35,7 +35,7 @@ class User extends Authenticatable
     }
 	
 	public static function getByEmail($email){
-		return Self::where('email',$email)->firstOrFail();	
+		return Self::where('email',$email)->first();	
 	}
 	
 	public static function getById($id){
