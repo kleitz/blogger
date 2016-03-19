@@ -29,12 +29,22 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 
-to deploy this app:
+## to deploy this app:
 
 
-1 use a ubuntu server
-2 clone the code base to server
-3 install composer
-4 cd into the folder and do composer install
-5 run command “php artisan migrate” to migrate the entire database
-6 finally run php artisan serve to make the app go live
+- use a ubuntu server
+
+- clone the code base to server
+
+- install composer
+
+- cd into the folder and do composer install
+
+- create the database in mysql 
+
+- make a .env file on server and add all the server keys
+
+- run command “php artisan migrate” to migrate the entire database
+
+- finally run php artisan serve to make the app go live
+
